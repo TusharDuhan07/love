@@ -5,18 +5,46 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Reasons Why I Love You ❤️</title>
     <style>
-        body { 
-            font-family: Arial, sans-serif; 
-            text-align: center; 
-            background: #ffebee; 
-            color: #d32f2f; 
-        }
-        h1 { font-size: 2.5em; }
-        ul { list-style: none; padding: 0; }
-        li { font-size: 1.5em; margin: 10px; }
-    </style>
+    body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+        background-color: #ffebf0;
+        color: #d63384;
+        padding: 50px;
+        animation: fadeIn 2s ease-in-out;
+    }
+
+    h1 {
+        font-size: 40px;
+        animation: heartbeat 1.5s infinite alternate;
+    }
+
+    p {
+        font-size: 20px;
+        opacity: 0;
+        animation: fadeIn 3s forwards;
+    }
+
+    /* Fade-in Animation */
+    @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+    }
+
+    /* Heartbeat Animation */
+    @keyframes heartbeat {
+        0% { transform: scale(1); }
+        100% { transform: scale(1.2); }
+    }
+</style>
+
 </head>
 <body>
+    <audio autoplay loop>
+    <source src="https://docs.google.com/uc?export=download&id=1uFgYyrQwZnoVRgAMGk3RPvlLGltJvdn5" type="audio/mpeg">
+    Your browser does not support the audio element.
+</audio>
+
     <h1>💖 Reasons Why I Love You, Sakshi! 💖</h1>
     <ul>
         <li>You're the most beautiful person in my life 😍</li>
@@ -26,5 +54,39 @@
         <li>Every moment with you feels like a dream 🌸</li>
     </ul>
     <h2>💋 Love you forever! 💋</h2>
+    <script>
+    const heartContainer = document.createElement("div");
+    document.body.appendChild(heartContainer);
+
+    function createHeart() {
+        const heart = document.createElement("div");
+        heart.innerHTML = "❤️";
+        heart.style.position = "fixed";
+        heart.style.left = Math.random() * window.innerWidth + "px";
+        heart.style.top = "-20px";
+        heart.style.fontSize = Math.random() * 20 + 20 + "px";
+        heart.style.opacity = Math.random();
+        heart.style.animation = "fall 4s linear";
+
+        heartContainer.appendChild(heart);
+
+        setTimeout(() => {
+            heart.remove();
+        }, 4000);
+    }
+
+    setInterval(createHeart, 500);
+
+    /* Falling hearts animation */
+    const style = document.createElement("style");
+    style.innerHTML = `
+        @keyframes fall {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(100vh); }
+        }
+    `;
+    document.head.appendChild(style);
+</script>
+
 </body>
 </html>
